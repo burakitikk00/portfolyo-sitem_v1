@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burak İtik - CV</title>
+    <link rel="icon" href="profile.jpeg" type="image/jpeg"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            /* Koyu Lacivert */
+            --accent-color: #3498db;
+            /* Açık Mavi */
+            --text-dark: #333333;
+            --text-light: #ecf0f1;
+            --bg-gray: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e0e0e0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            font-size: 14px;
+            color: var(--text-dark);
+            gap: 30px;
+            /* Sayfalar arası boşluk */
+        }
+
+        /* --- SAYFA YAPISI --- */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            /* A4 Yüksekliği */
+            background: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* SAYFA 1: İki Sütunlu */
+        .page-1 {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            /* Sol menü ve içerik */
+        }
+
+        /* SAYFA 2: Tek Sütun (Tam Sayfa) */
+        .page-2 {
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        /* --- SOL SÜTUN (SIDEBAR) --- */
+        .left-column {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sidebar-section h3 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info div {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            word-break: break-all;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            width: 15px;
+            text-align: center;
+        }
+
+        .info-list {
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            color: #bdc3c7;
+            font-size: 11px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* --- SAĞ SÜTUN / ANA İÇERİK --- */
+        .right-column {
+            padding: 40px;
+        }
+
+        .header-section {
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .header-section h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-section .title {
+            color: var(--accent-color);
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 12px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 1rem;
+        }
+
+        /* İŞ & DENEYİM KARTLARI */
+        .job-card {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #222;
+        }
+
+        /* Projeler kısmındaki başlıklara özel boşluk */
+        .page-2 .job-title {
+            margin-top: 30px;
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 13px;
+        }
+
+        .date {
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+        }
+
+        .job-desc {
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #555;
+            padding-left: 18px;
+        }
+
+        .job-desc li {
+            margin-bottom: 5px;
+        }
+
+        .summary-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* --- SAYFA 2 ÖZEL ALANLAR --- */
+
+        /* Teknik Yetkinlikler Tablosu */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .skill-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .skill-category {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-text {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        /* Kişisel Özellikler Listesi */
+        .soft-skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .soft-skills-list li {
+            position: relative;
+            padding-left: 25px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .soft-skills-list li::before {
+            content: '\f00c';
+            /* Check ikonu */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+
+        .soft-skills-list strong {
+            color: var(--primary-color);
+        }
+
+        /* BASKI AYARLARI */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                margin: 0;
+                gap: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                height: auto;
+                min-height: 297mm;
+                page-break-after: always;
+                /* Her .page bitiminde yeni kağıda geç */
+                break-after: page;
+            }
+
+            .left-column {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: #2c3e50 !important;
+            }
+
+            .skill-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: #f9f9f9 !important;
+            }
+
+            /* İkinci sayfa sonrasında boş sayfa çıkmasını engelle */
+            .page:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page page-1">
+
+        <aside class="left-column">
+
+            <div style="text-align: center;">
+                <img src="profile.jpeg" alt="Burak İtik"
+                    style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-color); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            </div>
+
+            <div class="sidebar-section">
+                <h3>İletişim</h3>
+                <div class="contact-info">
+                    <div><i class="fas fa-map-marker-alt"></i> Kayseri, Türkiye</div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span
+                            style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-envelope"></i> <a
+                                href="mailto:burakitikk00@gmail.com"
+                                style="color: inherit; text-decoration: none;">burakitikk00@gmail.com</a></span> <a
+                            href="mailto:burakitikk00@gmail.com"><i class="fas fa-external-link-alt"
+                                style="color: #4db8ff; font-size: 12px; margin-left: 5px;"></i></a></div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span
+                            style="display: flex; align-items: center; gap: 10px;"><i class="fab fa-linkedin-in"></i> <a
+                                href="https://linkedin.com/in/burakitik00" target="_blank"
+                                style="color: inherit; text-decoration: none;">linkedin.com/in/burakitik00</a></span> <a
+                            href="https://linkedin.com/in/burakitik00" target="_blank"><i
+                                class="fas fa-external-link-alt"
+                                style="color: #4db8ff; font-size: 12px; margin-left: 5px;"></i></a></div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;"><span
+                            style="display: flex; align-items: center; gap: 10px;"><i class="fab fa-github"></i> <a
+                                href="https://github.com/burakitikk00" target="_blank"
+                                style="color: inherit; text-decoration: none;">github.com/burakitikk00</a></span> <a
+                            href="https://github.com/burakitikk00" target="_blank"><i class="fas fa-external-link-alt"
+                                style="color: #4db8ff; font-size: 12px; margin-left: 5px;"></i></a></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Kişisel Bilgiler</h3>
+                <ul class="info-list">
+                    <li>
+                        <span class="info-label">Askerlik Durumu</span>
+                        Bedelli işlemleri yapıldı (2027- ayı belirsiz.)
+                    </li>
+                    <li>
+                        <span class="info-label">Yabancı Dil</span>
+                        İngilizce (Orta)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Eğitim</h3>
+                <ul class="info-list">
+                    <li>
+                        <strong>Bilgisayar Mühendisliği</strong><br>
+                        Erciyes Üniversitesi<br>
+                        <span style="font-size:11px; opacity:0.8;">2020 - 2025 (Lisans %30 ingilizce)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Sertifikalar</h3>
+                <ul class="info-list">
+                    <li style="border-left: 2px solid var(--accent-color); padding-left: 8px;">
+                        <strong>N4 ERP Uygulamalı Eğitimi</strong><br>
+                        <span style="font-size:11px;">Netsim Yazılım</span><br>
+                        <span style="font-size:11px; color:var(--accent-color);">Aralık 2025 (40 Saat)</span><br>
+                        <span style="font-size:10px; opacity:0.8; margin-top:4px; display:block;">Stok, Sipariş, Üretim
+                            ve Satınalma modül eğitimi.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Referanslar</h3>
+                <ul class="info-list">
+                    <li>
+                        <strong>Kasım Erdoğan</strong><br>
+                        <span style="font-size:11px;">KASKİ - Donanım Şb. Md.</span><br>
+                        <span style="font-size:11px;">0505 242 15 27</span>
+                    </li>
+                    <li>
+                        <strong>Aykut Alçayır</strong><br>
+                        <span style="font-size:11px;">Konya Teknokent Gn. Md. Yrd.</span><br>
+                        <span style="font-size:11px;">0546 890 64 24</span>
+                    </li>
+                    <li>
+                        <strong>Faruk Açıkel</strong><br>
+                        <span style="font-size:11px;">AFFA İş Sağlığı Ve Güvenliği Şirketi Yönetim Kurulu
+                            Bşk.</span><br>
+                        <span style="font-size:11px;"></span>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <main class="right-column">
+
+            <header class="header-section">
+                <header class="header-section">
+                    <h1>BURAK İTİK <span class="title" style="text-transform: none;font-size: 14px;">BİLGİSAYAR
+                            MÜHENDİSİ</span></h1>
+                    <br>
+
+                    <div class="title">Yazılımcı Uzmanı Adayı | ERP Uzman Adayı | IT Uzman Adayı </div>
+                </header>
+
+                <section>
+                    <div class="section-title">Hakkımda</div>
+                    <p class="summary-text" style="text-align: justify;">
+                        Bilgisayar Mühendisliği alanındaki akademik geçmişim ve güçlü teknik bilgimle kariyerime yön
+                        vermeye hazırım. Yazılım geliştirme, ERP (Netsim N4) ve modern web teknolojilerinde edindiğim
+                        yetkinliklerle projelerinize değer katacağıma inanıyorum. Karmaşık problemleri çözme yeteneğim,
+                        yenilikçi yaklaşımlarım ve sürekli öğrenmeye açık yapımla, en güncel teknolojilere hızla adapte
+                        olarak ekibinizin hedeflerine ulaşmasına yardımcı olmayı amaçlıyorum.
+                    </p>
+                </section>
+
+                <section>
+                    <div class="section-title">Deneyimler</div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="job-title">Saha Operasyonları ve Elektrik Tesisat Sorumlusu</span>
+                            <span class="date">2018(Dönemsel) - Devam Ediyor (Kendi mesleğimi yapana kadar..)</span>
+                        </div>
+                        <div class="company-name">HİLAL ELEKTRİK </div>
+                        <ul class="job-desc">
+                            <li>Konut projelerinin uçtan uca elektrik tesisatı döşeme, borulama ve montaj işlemlerinin
+                                gerçekleştirilmesi.</li>
+                            <li>Tesisat gereksinimlerinin projelendirilmesi ve saha uygulamalarının plana uygun şekilde
+                                koordine edilmesi.</li>
+                            <li>Bilişim sektöründe kariyer hedeflerime uygun profesyonel bir role geçiş yapana dek, aile
+                                firmamızda teknik sorumluluk ve süreç yönetimi bilinciyle çalışılması.</li>
+                        </ul>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="job-title">Web Yazılım Geliştirme Stajyeri</span>
+                            <span class="date">Haziran 2024 - Ağustos 2024</span>
+                        </div>
+                        <div class="company-name">
+                            <a href="https://www.suffatech.com" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                                <img src="https://www.suffatech.com/assets/brand/suffa-owl.png" alt="SUFFATECH Logo" style="height: 30px; object-fit: contain;">
+                                <span>SUFFATECH</span>
+                                <i class="fas fa-external-link-alt" style="color: #4db8ff; font-size: 12px;"></i>
+                            </a>
+                        </div>
+                        <ul class="job-desc">
+                            <li>Kurumsal bir yapı için sıfırdan modern web arayüzleri ve yönetim paneli geliştirildi.
+                            </li>
+                            <li>Müşteri gereksinimleri analiz edilerek kullanıcı dostu formlar ve veri giriş ekranları
+                                tasarlandı.</li>
+                            <li>Veri tabanı bağlantıları kurularak dinamik içerik yönetimi sağlandı.</li>
+                        </ul>
+                        <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                            <a href="https://drive.google.com/file/d/1ntvaRICpI8kqJanP72emqedY30S4M6xe/view?usp=sharing" target="_blank"
+                                style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                                    class="fas fa-file-alt"></i> Yazılım Stajı Proje Dokümanı</a>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="job-title">Bilgi İşlem ve Ağ Stajyeri</span>
+                            <span class="date">Haziran 2023 - Ağustos 2023</span>
+                        </div>
+                        <div class="company-name">
+                            <a href="https://www.kaski.gov.tr/" target="_blank" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                                <img src="https://www.freelogovectors.net/wp-content/uploads/2020/12/kaski-logo-freelogovectors.net_.png" alt="KASKİ Logo" style="height: 30px; object-fit: contain;">
+                                <span>KASKİ GENEL MÜDÜRLÜĞÜ</span>
+                                <i class="fas fa-external-link-alt" style="color: #4db8ff; font-size: 12px;"></i>
+                            </a>
+                        </div>
+                        <ul class="job-desc">
+                            <li>Kurumsal ağ altyapısı, sunucu odası yönetimi ve veri güvenliği süreçleri gözlemlendi.
+                            </li>
+                            <li>Büyük ölçekli bir kamu kurumunda bilgi işlem süreçlerinin işleyişi deneyimlendi.</li>
+                            <li>Kuruma yeni açılacak tesis için switch ve router'lar ile uygulama yapıldı.Ağ topolojisi
+                                oluşturuldu. Konfigurasyonları yapıldı.Test edildi.</li>
+                        </ul>
+                        <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                            <a href="https://drive.google.com/file/d/1tgyUbNlbvkMp3-AQOLqLlfM2xi7aywrL/view?usp=sharing" target="_blank"
+                                style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                                    class="fas fa-file-alt"></i> Donanım Stajı Proje Dokümanı</a>
+                        </div>
+                    </div>
+                </section>
+        </main>
+    </div>
+
+    <div class="page page-2">
+
+        <section>
+            <div class="section-title" style="margin-top:0;">Kariyer Hedefi & Vizyon</div>
+            <div class="job-card" style="border: none; padding-left: 0;">
+                <p class="summary-text" style="text-align: justify; margin-bottom: 12px;">
+                    <strong>Vizyon:</strong> Öğrenmenin ve gelişimin sınırsız olduğuna inanıyorum. Sadece yazılımda
+                    değil, hayatın her alanında ince ustalık gerektiren işlerin mutfağına girmek, emek harcayarak yeni
+                    yetenekler kazanmak benim için bir yaşam felsefesidir. Bu bitmeyen öğrenme serüveni, olaylara daha
+                    analitik, çözüm odaklı ve geniş bir perspektiften bakmamı sağlayan en temel değerimdir.
+                </p>
+                <p class="summary-text" style="text-align: justify;">
+                    <strong>Kariyer Hedefi:</strong> Modern yazılım mimarilerinde uzmanlaşmayı hedeflerken en büyük
+                    gayem; ailemden aldığım güçlü çalışma ahlakı ve azmimle güvenebileceğiniz bir takım arkadaşı
+                    olmaktır. Her işe büyük bir sahiplenme duygusuyla yaklaşır, hakkını vererek yapmaya çalışırım. Tek
+                    beklentim yeteneklerimi sergileyebileceğim bir fırsatın verilmesidir; ekibinize dahil olduğumda
+                    ortaya koyduğum kaliteli işler ve çalışkanlığımla "iyi ki" dedirtecek kalıcı bir değer olmak en
+                    büyük hedefimdir.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Teknik Yetkinlikler</div>
+
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <div class="skill-category"><i class="fas fa-database"></i> Veri Tabanı & Raporlama</div>
+                    <div class="skill-text">
+                        PostgreSQL, MSSQL, Prisma ORM, İlişkisel Veri Tabanı Tasarımı, Veri Analizi.<br>
+                        <em>(Karmaşık veritabanı şemaları kurgulama ve veri mimarisi tecrübesi.)</em>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-category"><i class="fas fa-code"></i> Yazılım Geliştirme</div>
+                    <div class="skill-text">
+                        Next.js, React, TypeScript, JavaScript, Node.js, Electron.js, HTML/CSS.<br>
+                        <em>(Modern web mimarileri, masaüstü uygulamalar ve ERP arayüz tasarımları.)</em>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-category"><i class="fas fa-cogs"></i> ERP Süreç Bilgisi</div>
+                    <div class="skill-text">
+                        Stok Yönetimi, Sipariş Süreçleri, E-Ticaret Entegrasyonları, Cari İşlemler <br>
+                        <em>(Teorik bilgi, proje bazlı pratik ve Netsim N4 eğitimi kazanımları.)</em>
+                    </div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-category"><i class="fas fa-tools"></i> Araçlar & Diğer</div>
+                    <div class="skill-text">
+                        Zustand, NextAuth.js, FFmpeg, Web Scraping, Git/GitHub, Sistem Analizi, Algoritma Mantığı,
+                        vsCode, SSMS.<br>
+                        <em>(Vercel/Render ile projeyi canlıya taşıma ve karmaşık durum yönetimi.)</em>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Projeler</div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">CANTACIM - E-Ticaret Platformu</span>
+                </div>
+                <div class="company-name">Full-Stack Proje | Next.js 16 | React 19 | Prisma | PostgreSQL | NextAuth.js
+                </div>
+                <ul class="job-desc">
+                    <li><strong>Modern Mimari & Güvenlik:</strong> Next.js ile SEO uyumlu, SSR destekli ve yüksek
+                        performanslı arayüz kurgulandı. NextAuth.js ile 2FA, rol tabanlı yetkilendirme ve güvenlik
+                        denetim kayıtları (Audit Log) entegre edildi.</li>
+                    <li><strong>Kapsamlı Veritabanı & Yönetim:</strong> Prisma ve PostgreSQL ile karmaşık varyantlı ürün
+                        ağaçları tasarlandı. "X Al Y Öde" gibi dinamik kupon/promosyon motorları ve kullanıcı sadakat
+                        programları geliştirildi.</li>
+                    <li><strong>Gelişmiş E-Ticaret Modülleri:</strong> Zustand ile sepet yönetimi, kargo takibi, ürün
+                        yorumları ve stok bildirim (gelince haber ver) gibi müşteri deneyimini artıran kritik özellikler
+                        kodlandı.</li>
+                    <li><strong>Otomatik Veri Göçü (Migration):</strong> Eski Shopier altyapısındaki verileri ve ürün
+                        görsellerini, özel web scraping scriptleri ve Excel analizi ile kayıpsız olarak yeni sisteme
+                        taşıyan araçlar yazıldı.</li>
+                </ul>
+                <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                    <a href="https://burakitikk00-cantacim-v2.vercel.app/" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fas fa-external-link-alt"></i> Canlı Site</a>
+                    <a href="https://github.com/burakitikk00/cantacim" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-github"></i> GitHub Kaynak Kodları</a>
+                    <a href="https://www.linkedin.com/posts/burakitik00_fullstackdevelopment-websecurity-ecommerce-ugcPost-7474515033104736256-Tcu8/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC61a9sBrdSnpIsHS1_tSp8IApTgl_7ZNMM"
+                        target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-linkedin"></i> Proje Tanıtım Videosu</a>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">ScreenPowerPro - Akıllı Ekran Kayıt Uygulaması</span>
+                </div>
+                <div class="company-name">Kişisel Proje | Electron.js | React | Zustand | FFmpeg</div>
+                <ul class="job-desc">
+                    <li>Kullanıcıların ekran kayıtlarını almasını ve arka plan algoritmalarıyla fare tıklamalarına göre
+                        videoya otomatik zoom/pan efektleri eklemesini sağlayan uçtan uca masaüstü uygulaması
+                        geliştirildi.</li>
+                    <li>Sistem seviyesinde donanım olayları (klavye/mouse takibi) dinlenerek kayıt sürecine entegre
+                        edildi.</li>
+                    <li>Uygulama içi karmaşık veri akışını sağlamak için gelişmiş state management (Zustand) mimarisi
+                        kurgulandı.</li>
+                    <li>FFmpeg kullanılarak medya işleme ve video rendering süreçleri başarılı bir şekilde yönetildi.
+                    </li>
+                </ul>
+                <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                    <a href="https://github.com/burakitikk00/ScreenPowerPro" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-github"></i> GitHub Kaynak Kodları</a>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">E-Ticaret Platformu (Stok & Sipariş Yönetimi & Üyelik Sistemi)</span>
+                </div>
+                <div class="company-name">Kişisel Proje | React | Node.js | MSSQL/PostgreSQL</div>
+                <ul class="job-desc">
+                    <li>ERP mantığıyla çalışan satış, stok ve ürün yönetimi simülasyonu geliştirildi.</li>
+                    <li><strong>Veri Tabanı Mimarisi:</strong> Ürün, kategori, kullanıcı ve sipariş tabloları arasındaki
+                        ilişkisel yapı kurgulandı.</li>
+                    <li><strong>Süreç Yönetimi:</strong> Bir siparişin oluşturulmasından stoktan düşülmesine kadar olan
+                        akış kodlandı.</li>
+                    <li><strong>Yönetim Paneli:</strong> Yöneticilerin verileri analiz edebileceği bir Dashboard
+                        tasarlandı.</li>
+                </ul>
+                <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                    <a href="https://github.com/burakitikk00/e-ticaret" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-github"></i> GitHub Kaynak Kodları</a>
+                    <a href="https://www.linkedin.com/posts/burakitik00_reactjs-nodejs-expressjs-ugcPost-7355196062086610944-y2Bv/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC61a9sBrdSnpIsHS1_tSp8IApTgl_7ZNMM"
+                        target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-linkedin"></i> Proje Tanıtım Post'u</a>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <span class="job-title">Kurumsal Web Sitesi Yönetimi</span>
+                </div>
+                <div class="company-name">Hastuğ İnşaat | React | Node.js | MSSQL</div>
+                <ul class="job-desc">
+                    <li>Firma ihtiyaçlarına yönelik dinamik altyapı ve yönetim paneli geliştirildi.</li>
+                    <li>Projelerin sergilenebileceği, admin panelinden güncellenebilir bir sistem teslim edildi.</li>
+                </ul>
+                <div style="margin-top: 10px; display: flex; gap: 15px; font-size: 13px;">
+                    <a href="https://github.com/burakitikk00/Hastugg" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; font-weight: 500;"><i
+                            class="fab fa-github"></i> GitHub Kaynak Kodları</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Yetkinlikler ve Kişisel Özellikler</div>
+            <ul class="soft-skills-list">
+                <li>
+                    <strong>Analitik Düşünme:</strong> Karmaşık problemleri alt parçalara bölerek çözme yeteneği.
+                </li>
+                <li>
+                    <strong>Süreç Odaklılık:</strong> Üretimden satışa iş akışlarını anlama ve dijitalleştirme isteği.
+                </li>
+                <li>
+                    <strong>Öğrenme Çevikliği:</strong> Yeni teknolojilere hızlı adapte olabilme.
+                </li>
+                <li>
+                    <strong>İletişim:</strong> Teknik konuları teknik olmayan paydaşlara (muhasebe, İK vb.) aktarabilme
+                    becerisi.
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
